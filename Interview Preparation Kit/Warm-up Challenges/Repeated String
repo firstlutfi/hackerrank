@@ -1,0 +1,22 @@
+function repeatedString($s, $n) {
+    $numberOfRepeats = intdiv($n, strlen($s));
+    $counter = 0;
+    $remainder = $n % strlen($s);
+    $split = str_split($s);
+    $remainingString = "";
+
+    if (array_key_exists("a", array_count_values($split))){
+        $counter = array_count_values($split)["a"] * $numberOfRepeats;
+        
+        if ($remainder != 0){
+            $remainingString = str_split(substr($s, 0, $remainder));
+            
+            if (array_key_exists("a", array_count_values($remainingString))){
+                $counter += array_count_values($remainingString)["a"];
+                
+            }
+        }
+    }
+    
+    return $counter;
+}

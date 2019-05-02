@@ -1,0 +1,11 @@
+function sockMerchant($n, $ar) {
+    $counter = 0;
+    $values = array_count_values($ar);
+
+    foreach ($values as $val){
+        if ($val >= 2){
+            $counter += intdiv($val,2);
+        }
+    }
+    return $counter;
+}
