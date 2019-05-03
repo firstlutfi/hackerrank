@@ -1,0 +1,13 @@
+function matchingStrings($strings, $queries) {
+    $answers = array();
+    $count = array_count_values($strings);
+    
+    foreach($queries as $q){
+        if (array_key_exists($q, $count)){
+            array_push($answers, $count[$q]);
+        }else{
+            array_push($answers, 0);
+        }
+    }
+    return $answers;
+}
