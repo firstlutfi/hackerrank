@@ -1,0 +1,27 @@
+function arrayManipulation($n, $queries) {
+    $arr = array_fill(0, $n, 0);
+    $max = 0;
+    $updates = 1;
+    foreach($queries as $q){
+        for($i=$q[0]-1;$i<$q[1]; $i++){
+            $arr[$i]+=$q[2];
+        }
+    }
+    
+    return max($arr);
+}
+
+def arrayManipulation(n, queries):
+    arr = [0]*n
+    for i in queries:
+        arr[i[0] - 1] += i[2]
+        if i[1] != len(arr):
+            arr[i[1]] -= i[2]
+    maxval = 0
+    itt = 0
+    
+    for q in arr:
+        itt += q
+        if itt > maxval:
+            maxval = itt
+    return maxval
